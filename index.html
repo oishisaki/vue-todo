@@ -1,59 +1,60 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow">
-    <title>ToDoリスト試作</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <section>
-      <div id="app">
-        <h1>ToDoリスト</h1>
-        <!-- Vue動いているか確認用 -->
-        <div class="kakunin_area">
-          <p>動いているか確認エリア</p>
-          <p>{{msg}}</p>
-          <button @click="sayHello">Hi!</button>
-        </div>
-        <!-- 確認用ここまで -->
-        <h2>新しいタスク</h2>
-        <form @submit.prevent="addTask">
-          <input type="text" ref="comment" v-model="newTask" placeholder="新しいタスクを入力" required />
-          <input type="date" v-model="dueDate" required />
-          <button type="submit">追加</button>
-        </form>
-        <h2>タスク一覧</h2>
-        <table>
-          <thead>
-            <!-- リストの項目一覧になる -->
-            <tr>
-              <th class="date">期日</th>
-              <th class="comment">タスク</th>
-              <th class="state">状態</th>
-              <th class="button">削除</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- チェックボックス欲しい -->
-            <tr v-for="item in todos" v-bind:key="item.id" v-bind:class="{done:item.state}">
-              <!-- 要素の情報 -->
-              <td><input type="checkbox" v-model="todo.isDone"></td>
-              <td>{{ item.due }}</td>
-              <td>{{ item.comment }}</td>
-              <td class="state">
-                <!-- ★STEP10 状態変更ボタン -->
-                <button v-on:click="doChangeState(item)">
-                  {{ labels[item.state] }}
-                </button>
-              </td>
-              <td><button v-on:click="doRemove(item)">Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>ToDoリスト試作</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <div id="app">
+      <h1>ToDoリスト</h1>
+
+      <!-- Vue動作確認用 -->
+      <div class="kakunin_area">
+        <p>動いているか確認エリア</p>
+        <p>{{ msg }}</p>
+        <button @click="sayHello">Hi!</button>
       </div>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+      <h2>新しいタスク</h2>
+      <form @submit.prevent="addTask">
+        <input type="text" ref="comment" v-model="newTask" placeholder="新しいタスクを入力" required />
+        <input type="date" v-model="dueDate" required />
+        <button type="submit">追加</button>
+      </form>
+
+      <h2>タスク一覧</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>完了</th>
+            <th class="date">期日</th>
+            <th class="comment">タスク</th>
+            <th class="state">状態</th>
+            <th class="button">削除</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in todos" :key="item.id" :class="{ done: item.state }">
+            <td><input type="checkbox" v-model="item.isDone"></td>
+            <td>{{ formatDate(item.due) }}</td>
+            <td>{{ item.comment }}</td>
+            <td>
+              <button @click="doChangeState(item)">
+                {{ labels[item.state] }}
+              </button>
+            </td>
+            <td><button @click="doRemove(item)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>

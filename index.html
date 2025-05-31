@@ -40,8 +40,8 @@
         <tbody>
           <tr v-for="item in todos" :key="item.id" :class="{ done: item.state }">
             <td><input type="checkbox" v-model="item.isDone"></td>
-            <td>{{ formatDate(item.due) }}</td>
-            <td>{{ item.comment }}</td>
+            <td :class="{ done: item.isDone }">{{ formatDate(item.due) }}</td>
+            <td :class="{ done: item.isDone }">{{ item.comment }}</td>
             <td>
               <button @click="doChangeState(item)">
                 {{ labels[item.state] }}

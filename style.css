@@ -1,18 +1,237 @@
 section {
-  width: 80%;
+  width: 70%;
   padding-top: 3rem;
+  padding-bottom: 3rem;
   margin: 0 auto;
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-size: 1rem;
+}
+
+.titleArea{
+  text-align: center;
 }
 
 h1 {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding: 0 4rem;
   font-size: 2rem;
+}
+
+h1:before, h1:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 2px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+}
+
+h1:before {
+  left:0;
+}
+h1:after {
+  right: 0;
 }
 
 h2 {
   font-size: 1.5rem;
 }
 
+
+.formArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.formArea input {
+  height: 2rem;
+  padding: 0.1rem;
+}
+
+.formText {
+  position: relative;
+  width: 320px;
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formText input[type=text] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+.formText input[type=text] {
+  padding-left: 40px;
+}
+.formText [class^="svg_"] {
+  position: absolute;
+  left: 10px;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  width: 16px;
+  height: 16px;
+  transition: 0.3s;
+}
+.formText .svg_list {
+  background-image: url("image/newtask_icon.svg");
+}
+.formText input[type=text]:focus {
+  border-color: #06b6d4;
+}
+.formText input[type=text]:focus + [class^="svg_"] {
+  background-image: url("image/newtask_icon_focus.svg");
+}
+
+
+.formDate{
+  width: 120px;
+  height: 36px;
+	position: relative;
+	display: block;
+	line-height: 1;
+}
+
+.formDate input[type="date"]{
+  width: 100%;
+  max-width: 100%;
+	line-height: 1em;
+	border: 1px solid #aaa;
+	background: #fff;
+	color: #262626;
+}
+
+
+
+.submitBtn{
+  border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:1rem;
+	padding:4px 8px;
+  margin-left: 8px;
+  min-width: 100px;
+	text-decoration:none;
+  background-color: #fff;
+  color: #000;
+  border:0.1rem solid #000;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th{
+  height: 3.5rem;
+  border-bottom: double 4px #d3d3d3;
+}
+
+tbody tr {
+  height: 3.5rem;
+  border-bottom: dotted 2px #d3d3d3;
+}
+
+
+.check,.date {
+  width: 12%;
+}
+
+.state,.button{
+  width: 16%;
+}
+
+.center {
+  text-align: center;
+}
+
+.checkbox {
+  appearance: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  border: 0.1rem solid #06b6d4;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background-color: #06b6d4;
+}
+
+.checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 12px;
+  height: 6px;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  transform: rotate(-45deg);
+}
+
+
+.taskBtn {
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:1rem;
+	padding:4px 8px;
+  min-width: 100px;
+	text-decoration:none;
+  color: white;
+}
+
+
+.state-0 {
+  background-color: #f0ad4e; /* オレンジ */
+  border:1px solid #f0ad4e;
+}
+
+.state-1 {
+  background-color: #06b6d4; /* 緑 */
+  border:1px solid #06b6d4;
+}
+
+.state-2 {
+  background-color: #d44b06; /* 青 */
+  border:1px solid #d44b06;
+}
+
+.deleteBtn {
+	border-radius:28px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:1rem;
+	padding:4px 8px;
+  min-width: 100px;
+	text-decoration:none;
+  background-color: #fff;
+  color: #000;
+  border:0.1rem solid #000;
+}
+
 .done {
   text-decoration: line-through;
   color: #999;
+}
+
+.taskDue{
+  text-decoration: none !important;
 }

@@ -5,32 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
   <title>ToDoリスト試作</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <section>
     <div id="app">
-      <h1>ToDoリスト</h1>
-
-      <!-- Vue動作確認用 -->
-      <div class="kakunin_area">
-        <p>動いているか確認エリア</p>
-        <p>{{ msg }}</p>
-        <button @click="sayHello">Hi!</button>
+      <div class="titleArea">
+        <h1>ToDoリスト</h1>
       </div>
-
-      <h2>新しいタスク</h2>
-      <form @submit.prevent="addTask">
-        <input type="text" ref="comment" v-model="newTask" placeholder="新しいタスクを入力" required />
-        <input type="date" v-model="dueDate" required />
-        <button type="submit">追加</button>
+      <form class="formArea" @submit.prevent="addTask">
+        <div class="formText"><input type="text" ref="comment" v-model="newTask" placeholder="新しいタスクを入力" required/><div class="svg_list"></div></div>
+        <div class="formDate"><input type="date" v-model="dueDate" required /></div>
+        <button type="submit" class="submitBtn">追加</button>
       </form>
 
       <h2>タスク一覧</h2>
       <table>
         <thead>
           <tr>
-            <th>完了</th>
+            <th class="check">チェック</th>
             <th class="date">期日</th>
             <th class="comment">タスク</th>
             <th class="state">状態</th>
@@ -38,16 +34,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in todos" :key="item.id" :class="{ done: item.state }">
-            <td><input type="checkbox" v-model="item.isDone"></td>
-            <td :class="{ done: item.isDone }">{{ formatDate(item.due) }}</td>
+          <tr v-for="item in todos" :key="item.id">
+            <td class="center"><input type="checkbox" name="checkbox" class="checkbox" v-model="item.isDone"></td>
+            <td class="center taskDue">{{ formatDate(item.due) }}</td>
             <td :class="{ done: item.isDone }">{{ item.comment }}</td>
-            <td>
-              <button @click="doChangeState(item)">
+            <td class="center">
+              <button
+                @click="doChangeState(item)"
+                :class="['taskBtn', `state-${item.state}`]">
                 {{ labels[item.state] }}
               </button>
             </td>
-            <td><button @click="doRemove(item)">Delete</button></td>
+            <td class="center"><button class="deleteBtn" @click="doRemove(item)">Delete</button></td>
           </tr>
         </tbody>
       </table>

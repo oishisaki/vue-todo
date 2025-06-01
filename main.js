@@ -16,7 +16,6 @@ var todoStorage = {
 var app = new Vue({
   el: '#app',
   data: {
-    msg: 'こんにちは Vue!',
     newTask: '',
     dueDate: '',
     todos: [],
@@ -30,9 +29,6 @@ var app = new Vue({
     labels: ['作業中', '完了', '未対応']
   },
   methods: {
-    sayHello: function () {
-      this.msg = 'Hello Vue!';
-    },
     addTask: function () {
       var comment = this.$refs.comment;
       if (!this.newTask || !this.dueDate) return;

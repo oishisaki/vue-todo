@@ -1,5 +1,6 @@
 section {
   width: 70%;
+  max-width: 1200px;
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin: 0 auto;
@@ -47,6 +48,8 @@ h2 {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  padding-top: 40px;
+  padding-bottom: 24px;
 }
 
 .formArea input {
@@ -57,7 +60,6 @@ h2 {
 .formText {
   position: relative;
   width: 320px;
-  margin: 40px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,19 +99,18 @@ h2 {
 
 .formDate{
   width: 120px;
-  height: 36px;
-	position: relative;
 	display: block;
 	line-height: 1;
 }
 
 .formDate input[type="date"]{
+  box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
-	line-height: 1em;
-	border: 1px solid #aaa;
-	background: #fff;
-	color: #262626;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
 }
 
 

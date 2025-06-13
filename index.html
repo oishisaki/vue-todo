@@ -29,7 +29,7 @@
             <th class="check">チェック</th>
             <th class="date">期日</th>
             <th class="comment">タスク</th>
-            <th class="state">状態</th>
+            <th class="state forPc">状態</th>
             <th class="button">削除</th>
           </tr>
         </thead>
@@ -38,7 +38,7 @@
             <td class="center"><input type="checkbox" name="checkbox" class="checkbox" v-model="item.isDone"></td>
             <td class="center taskDue">{{ formatDate(item.due) }}</td>
             <td :class="{ done: item.isDone }">{{ item.comment }}</td>
-            <td class="center">
+            <td class="center forPc">
               <button
                 @click="doChangeState(item)"
                 :class="['taskBtn', `state-${item.state}`]">

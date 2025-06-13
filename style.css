@@ -236,3 +236,80 @@ tbody tr {
 .taskDue{
   text-decoration: none !important;
 }
+
+
+@media screen and (max-width: 415px) {
+  body {
+    margin: 0px;
+  }
+
+  .forPc {
+    display: none;
+  }
+
+  section {
+    width: 95%;
+    padding: 1.5rem 0;
+    margin: 0 auto;
+    font-size: 0.6rem;
+  }
+
+  h1 {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 0 4rem;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+  font-size: 1.2rem;
+  margin: 1rem 0 0.3rem;
+  }
+
+  .formArea {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .formText {
+    width: 100%;
+  }
+
+  .formDate{
+    width: 70%;
+  }
+
+  .submitBtn{
+    border-radius: 28px;
+    font-size:0.7rem;
+    padding: 8px 8px;
+    margin-left: 8px;
+    min-width: 25%;
+  }
+
+  .check,.date {
+  width: 14%;
+  }
+
+  .checkbox{
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+  }
+
+  .checkbox:checked::after {
+    top: 1px;
+    left: 1px;
+    width: 10px;
+    height: 6px;
+  }
+
+  .deleteBtn {
+	border-radius:28px;
+	font-size:0.6rem;
+  min-width: 40px;
+  }
+}
